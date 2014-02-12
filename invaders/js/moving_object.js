@@ -14,6 +14,15 @@
       this.pos[1] += this.vel[1];
     },
 
+    collidesWith: function (movingObject) {
+      imageWidth = movingObject.getImage().width;
+      imageHeight = movingObject.getImage().height;
+      return this.pos[0] + imageWidth / 2 >= movingObject.pos[0] &&
+             this.pos[0] + imageWidth / 2 < movingObject.pos[0] + imageWidth &&
+             this.pos[1] + imageHeight / 2 >= movingObject.pos[1] &&
+             this.pos[1] + imageHeight / 2 < movingObject.pos[1] + imageHeight
+    },
+
     show: function (canvas, ctx) {
       if (this.img) {
         ctx.drawImage(
@@ -33,7 +42,7 @@
       if (this.type != 'ship' && this.type != 'shot') {
         return (this.pos[0] > halfWidth || this.pos[0] < -halfWidth ||
                       this.pos[1] > halfHeight || this.pos[1] < -halfHeight);
-      }
+      } 
     },
 
     //Getters and setters

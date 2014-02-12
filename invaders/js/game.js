@@ -4,6 +4,8 @@
   var Game = SpaceGame.Game = function () {
     this.playerShip = new SpaceGame.Ship([200, 400], [0, 0], 'images/ship.png');
     this.objects = [];
+    this.bullets = [];
+    this.enemies = [];
     this.keysPressed = [];
     this.objectsToKill = [];
     this.theta = 0;
@@ -48,9 +50,9 @@
     },
 
     test: _.throttle(function () {
-      this.objects = this.objects.concat(this.baddie_generator.wave('top'));
-      this.objects = this.objects.concat(this.baddie_generator.wave('right'));
-      this.objects = this.objects.concat(this.baddie_generator.wave('left'));
+      this.enemies = this.enemies.concat(this.baddie_generator.wave('top'));
+      this.enemies = this.enemies.concat(this.baddie_generator.wave('right'));
+      this.enemies = this.enemies.concat(this.baddie_generator.wave('left'));
     }, 1000, { trailing: false }),
 
     loop: function () {
@@ -60,7 +62,7 @@
     },
 
     throttledFire: _.throttle(function () {
-      this.objects.push(this.playerShip.fire());
+      this.bullets.push(this.playerShip.fire());
     }, 200, { trailing: false }),
 
     throttledSpin: _.throttle(function (dir) {
@@ -98,7 +100,32 @@
       });
     },
 
+    ENEMY_POINT_VALUE: 5,
+
+    explodeEnemy: function (bullet, enemy) {
+      this.bullets.splice(this.bullets.indexOf(bullet), 1);
+      this.enemies.splice(this.enemies.indexOf(enemy), 1);
+      this.score += this.ENEMY_POINT_VALUE;
+    },
+
     checkCollisions: function () {
+      var that = this;
+      var orientations = [
+        this.orientation, 
+        this.orientation + 4, 
+        this.orientation - 4
+      ];
+      _.each(this.bullets, function (bullet) {
+        _.each(that.enemies, function (enemy) {
+          if (orientations.indexOf(enemy.orientation) === -1)
+            return;
+
+          if (bullet.collidesWith(enemy)) {
+            console.log('boom');
+            that.explodeEnemy(bullet, enemy);
+          }
+        });
+      });
     },
 
     ROTATION_SPEED: Math.PI / 10,
@@ -148,21 +175,35 @@
       }
     },
 
-    showAndMove: function (object, index) {
+    showAndMove: function (object) {
+      var index = 0;
       object.show(this.canvas, this.ctx);
       object.move();
+      switch (object.type) {
+        case 'enemy':
+          index = this.enemies.indexOf(object);
+          break;
+        case 'bullet':
+          index = this.bullets.indexOf(object);
+          break;
+      }
       if (object.isOutOfBounds(this.canvas)) {
-        this.objectsToKill.push(index);
+        this.objectsToKill.push([index, object.type]);
       }
     },
 
     garbageCollectObjects: function () {
       var that = this;
-      _.each(this.objectsToKill, function (index) {
-        if (that.objects[index] && that.objects[index].type === 'enemy') {
-          that.baddie_generator.remove(1);
+      _.each(this.objectsToKill, function (data) {
+        switch (data[1]) {
+          case 'enemy':
+            that.enemies.splice(data[0], 1);
+            that.baddie_generator.remove(1);
+            break;
+          case 'shot':
+            that.bullets.splice(data[0], 1);
+            break;
         }
-        that.objects.splice(index, 1);
       });
       this.objectsToKill = [];
     },
@@ -170,21 +211,26 @@
     render: function () {
       var that = this;
       var objectsToKill = [];
+      var objects = [];
 
+      this.checkCollisions();
       this.clearAndPaintBackground();
       this.reactToInput();
       this.handleRotations();
 
-      _.each(this.objects, function (object, index) {
+      objects = this.objects.concat(this.enemies);
+      objects = objects.concat(this.bullets);
+
+      _.each(objects, function (object) {
         if (object === null)
           return;
         if (object.type === 'ship' || object.type === 'shot') {
           that.ctx.save();
           that.ctx.setTransform(1, 0, 0, 1, 0, 0);
-          that.showAndMove(object, index);
+          that.showAndMove(object);
           that.ctx.restore();
         } else {
-          that.showAndMove(object, index);
+          that.showAndMove(object);
         }
       }, this);
 

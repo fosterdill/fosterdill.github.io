@@ -15,9 +15,7 @@
 
     wave: function (side) {
       var baddies = [];
-      for (var i = 0; i < 1; i++) {
-        baddies.push(this.single(side));
-      }
+      baddies.push(this.single(side));
       return baddies;
     },
 
@@ -40,7 +38,7 @@
           case 'right':
             position = [this.canvas.width / 2,
                         (this.canvas.height) * randNum - halfHeight];
-            velocity = [-2 * Math.random() + 2, 0];
+            velocity = [-2 * Math.random() - 2, 0];
             orientation = 1;
             break;
           case 'left':
