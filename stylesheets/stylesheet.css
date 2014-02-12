@@ -119,7 +119,6 @@ a.button {
   display: block;
   float: left;
   width: 179px;
-  margin-right: 14px;  
   background: #fdfdfd; /* Old browsers */
   background: -moz-linear-gradient(top,  #fdfdfd 0%, #f2f2f2 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
@@ -161,6 +160,10 @@ a.button span {
 }
 #view-on-github span {
   background: transparent url(../images/octocat-icon.png) 12px 50% no-repeat;
+}
+#view-on-linkedin span {
+  background: transparent url(../images/linkedin.png) 12px 50% no-repeat;
+  margin-right: 0px;
 }
 #view-on-github {
   margin-right: 0;
