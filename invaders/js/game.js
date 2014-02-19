@@ -117,13 +117,13 @@
       ];
       _.each(this.bullets, function (bullet) {
         _.each(that.enemies, function (enemy) {
-          if (orientations.indexOf(enemy.orientation) === -1)
-            return;
+          // if (orientations.indexOf(enemy.orientation) === -1)
+          //   return;
 
-          if (bullet.collidesWith(enemy)) {
-            console.log('boom');
-            that.explodeEnemy(bullet, enemy);
-          }
+          // if (bullet.collidesWith(enemy)) {
+          //   console.log('boom');
+          //   that.explodeEnemy(bullet, enemy);
+          // }
         });
       });
     },
