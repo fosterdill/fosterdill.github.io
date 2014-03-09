@@ -3,7 +3,7 @@ body {
   font-family: 'Gafata', sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  margin-top: 47px;
+  margin-top: 46px;
   background: #edf1f2;
 }
 
@@ -68,6 +68,7 @@ body {
   position: fixed;
   top: 0px;
   width: 960px;
+  border-bottom: 1px solid grey;
 }
 
 .project-show {
@@ -83,7 +84,7 @@ body {
 
 .project-title {
   font-size: 18pt;
-  border-bottom: 2px grey solid;
+  border-bottom: 1px grey solid;
   width: 50%;
 }
 
