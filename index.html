@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" title="" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://backbonejs.org/backbone-min.js"></script>
+    <script src="javascript/portfolio.js"></script>
+    <script src="javascript/routers/router.js"></script>
+
+    <title>Dylan Foster</title>
+  </head>
+  <body>
+  <div class="container">
+      <div class="navbar">
+        <div class="header-buttons">
+          <div class="header-button">
+            <a id="about-link" href="#about">About</a>
+          </div>
+          <div class="header-button">
+            <a id="projects-link" href="#projects">Projects</a>
+          </div>
+        </div>
+        <div class="name">
+          <span class="bigger-font">D</span>ylan <span class="bigger-font">F</span>oster  
+          <span id="email"><a href="mailto:fosterdill@gmail.com">fosterdill@gmail.com</a></span>
+        </div>
+        <hr class="divider-shadow" />
+      </div>
+      <div class="content">
+
+    <div class="viewport">
+      <div class="scrollable">
+        <div class="about-container">
+        <h1 style="text-align: center">About</h1>
+        <div class="about">
+          <div class="profile-picture">
+            <img src="dylan-foster-roof.jpg">
+          </div>
+            <p>I don't always code, but when I do I really like it. I love working with <b> Ruby, Rails, JavaScript, Backbone, HTML, CSS, and Node.js</b>. I code for fun and for work, and most of the rest of the time. Ok, so maybe I do always code. I grew up in upstate New York, and moved to San Francisco to experience the exciting world of Tech where it is hottest. While here I have met a lot of great people and worked on some very cool projects, some of which are above.</p>
+
+
+          <p>I have done quite a bit of pair programming with other developers, and the ability to talk through ideas and amalmagate several diverging paths of thought is a skill that I have slowly learned. I now have a good grasp on what it takes to work in collaboration with my friends/collegues and I enjoy the process from start to finish.</p>
+
+
+          <p>If I had to describe myself as a coder in a word, it would be excited. I enjoy solving problems and working with other people, but more than anything, just building things. For some it is difficult to keep the payoff in mind while working on a bug, or cranking out boilerplate, but for me its motivation. That website or game or server that I am working on is worth whatever I have to do to make it fast, clean, and beautiful.</p>
+        </div>
+      </div>
+
+      <div class="project-container">
+        <h1 style="text-align: center">Projects</h1>
+
+        <div class="project-show">
+          <div class="project-img">
+            <img src="http://placekitten.com/g/300/200">
+          </div>
+          <div class="project-title">
+            Bettergram
+          </div>
+          <div class="project-desc">
+           A clean and snappy interface to Instagram.com. Uses Redis caching for API feed requests. Uses Backbone.js for front end organization, and Ruby on Rails for back end. Maintains RESTful conventions between client and server side communication. Relies on OAuth 2.0 to talk to Instagram's API. 
+          </div>
+        </div>
+
+        <div class="project-show">
+          <div class="project-img">
+            <img src="http://placekitten.com/g/300/200">
+          </div>
+          <div class="project-title">
+            First Person Invaders
+          </div>
+          <div class="project-desc">
+Unique space game written in Javascript, control your ship and the environment. Rotate space to stay alive and get a high score. Utilizes strong object oriented design for code organization. Allows rotation of context through the use of trigonometry and vector arithmetic.
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

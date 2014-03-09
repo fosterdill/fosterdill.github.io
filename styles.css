@@ -1,0 +1,116 @@
+body {
+  color: #353535;
+  font-family: 'Gafata', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  margin-top: 51px;
+  background-image: url('crossword.png');
+  background-repeat: repeat;
+}
+
+.viewport {
+  position: fixed;
+  width: 960px;
+  height: 100%;
+  overflow: hidden;
+}
+.container {
+  margin: 0px auto;
+  width: 960px;
+}
+
+
+.scrollable {
+  position: absolute;
+  top: 10px;
+  background: rgba(255, 255, 255, .5);
+}
+
+.blur {
+  -webkit-filter: blur(5px);
+}
+
+.header-buttons {
+  overflow: hidden;
+  margin-top: 18px;
+  float: right;
+}
+
+.header-button {
+  font-size: 16pt;
+  float: left;
+  margin-left: 10px;
+  position: relative;
+}
+
+.name {
+  font-size: 25pt;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #4d1d1b;
+}
+
+.name > #email {
+  font-size: 14pt;
+  font-family: 'Josefin Sans';
+  letter-spacing: -1px;
+}
+
+.divider-shadow {
+  margin: 0px;
+  margin-top: 5px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0px;
+  width: 960px;
+}
+
+.project-show {
+  width: 90%;
+  height: 250px;
+  margin: 0px auto;
+  margin-bottom: 50px;
+}
+
+.project-img {
+  float: right;
+}
+
+.project-title {
+  font-size: 18pt;
+  border-bottom: 2px grey solid;
+  width: 50%;
+}
+
+.project-desc {
+  padding-top: 15px;
+  width: 50%;
+}
+
+.about {
+  margin: 0px auto;
+  margin-bottom: 80px;
+  width: 90%;
+}
+
+.profile-picture {
+  float: left;
+  margin-right: 15px;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  position:relative;
+}
+a:hover{
+  color: #6c0000;
+}
+
+.bigger-font {
+  font-size: 30pt;
+}
