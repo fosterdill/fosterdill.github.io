@@ -39,7 +39,7 @@ $(document).ready(function () {
     var delta = event.originalEvent.wheelDelta;
     var el = $(".scrollable");
     var elTop = parseInt(el.css("top"), 10);
-    var limit = -parseInt($('.viewport').css('height')) - 500;
+    var limit = -parseInt($('.viewport').css('height')) - 300;
 
     //move if in bounds, set to max or min if out
     if (delta < 0) {
