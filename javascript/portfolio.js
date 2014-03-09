@@ -14,7 +14,7 @@ $(document).ready(function () {
   Portfolio.initialize();
 
   //handlers for about and projects clicks
-  $('#about-link').on('click', function (event ) {
+  $('.about-link').on('click', function (event ) {
     event.preventDefault();
     if (Backbone.history.fragment == 'about') {
       Backbone.history.loadUrl('about');
@@ -23,7 +23,7 @@ $(document).ready(function () {
     }
   });
 
-  $('#projects-link').on('click', function (event ) {
+  $('.projects-link').on('click', function (event ) {
     event.preventDefault();
     if (Backbone.history.fragment == 'projects') {
       Backbone.history.loadUrl('projects');
