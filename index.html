@@ -14,6 +14,7 @@
     <title>Dylan Foster</title>
   </head>
   <body>
+
   <div class="container">
       <div class="navbar">
         <div class="header-buttons">
@@ -26,9 +27,11 @@
         </div>
         <div class="name">
           <span class="bigger-font">D</span>ylan <span class="bigger-font">F</span>oster  
-          <span id="email"><a href="mailto:fosterdill@gmail.com">fosterdill@gmail.com</a></span>
+          <a class="resource" href="https://www.github.com/fosterdill">GitHub</a>
+          <a class="resource" href="http://www.linkedin.com/pub/dylan-foster/8a/784/763/">Linkedin</a>
+          <a class="resource" href="resume.pdf">Resume</a>
+          <span class="resource"><a href="mailto:fosterdill@gmail.com">Email</a></span>
         </div>
-        <hr class="divider-shadow" />
       </div>
       <div class="content">
 
@@ -40,13 +43,10 @@
           <div class="profile-picture">
             <img src="dylan-foster-roof.jpg">
           </div>
-            <p>I don't always code, but when I do I really like it. I love working with <b> Ruby, Rails, JavaScript, Backbone, HTML, CSS, and Node.js</b>. I code for fun and for work, and most of the rest of the time. Ok, so maybe I do always code. I grew up in upstate New York, and moved to San Francisco to experience the exciting world of Tech where it is hottest. While here I have met a lot of great people and worked on some very cool projects, some of which are above.</p>
+            <p>I don't always code, but when I do I really like it. I love working with <b> Ruby, Rails, JavaScript, Backbone, HTML, CSS, and Node.js</b>. I code for fun and for work, and most of the rest of the time. Ok, so maybe I do always code.</p>
 
 
-          <p>I have done quite a bit of pair programming with other developers, and the ability to talk through ideas and amalmagate several diverging paths of thought is a skill that I have slowly learned. I now have a good grasp on what it takes to work in collaboration with my friends/collegues and I enjoy the process from start to finish.</p>
-
-
-          <p>If I had to describe myself as a coder in a word, it would be excited. I enjoy solving problems and working with other people, but more than anything, just building things. For some it is difficult to keep the payoff in mind while working on a bug, or cranking out boilerplate, but for me its motivation. That website or game or server that I am working on is worth whatever I have to do to make it fast, clean, and beautiful.</p>
+          <p>If I had to describe myself in a word, it would be excited. I enjoy solving problems and working with other people, but more than anything, just building things. For some it is difficult to keep the payoff in mind while working on a bug, or cranking out boilerplate, but for me its motivation. That website or game or server that I am working on is worth whatever I have to do to make it fast, clean, and beautiful.</p>
         </div>
       </div>
 
@@ -55,27 +55,52 @@
 
         <div class="project-show">
           <div class="project-img">
-            <img src="http://placekitten.com/g/300/200">
+            <a href="http://www.bettergram.com/"><img src="bettergram.png"></a>
           </div>
           <div class="project-title">
-            Bettergram
+            <a href="http://www.bettergram.com/">Bettergram</a> <a href="https://github.com/fosterdill/bettergram">(source)</a>
           </div>
           <div class="project-desc">
-           A clean and snappy interface to Instagram.com. Uses Redis caching for API feed requests. Uses Backbone.js for front end organization, and Ruby on Rails for back end. Maintains RESTful conventions between client and server side communication. Relies on OAuth 2.0 to talk to Instagram's API. 
+           A clean and snappy interface to Instagram.com. Uses Redis caching for API feed requests. Uses Backbone and Rails. Maintains RESTful conventions between client and server side communication. Relies on OAuth 2.0 to talk to Instagram's API. 
           </div>
         </div>
 
         <div class="project-show">
           <div class="project-img">
-            <img src="http://placekitten.com/g/300/200">
+            <a href="https://github.com/jacknoble/coffeend"><img src="Screenshot from 2014-03-08 18:32:55.png"></a>
           </div>
           <div class="project-title">
-            First Person Invaders
+            Coffee Date (in progress) <a href="https://github.com/jacknoble/coffeend">(source)</a>
+          </div>
+          <div class="project-desc">
+            Collabrative project with a friend. Uses Google Maps V3 API, Google Places API, Redis, DJ (Delayed Job), HTML5 Geolocation, Rails, and Backbone.
+          </div>
+        </div>
+
+        <div class="project-show">
+          <div class="project-img">
+            <a href="invaders"><img src="fpinvaders.png"></a>
+          </div>
+          <div class="project-title">
+            <a href="invaders">First Person Invaders</a> <a href="https://github.com/fosterdill/first-person-invaders">(source)</a>
           </div>
           <div class="project-desc">
 Unique space game written in Javascript, control your ship and the environment. Rotate space to stay alive and get a high score. Utilizes strong object oriented design for code organization. Allows rotation of context through the use of trigonometry and vector arithmetic.
           </div>
         </div>
+
+        <div class="project-show">
+          <div class="project-img">
+            <a href="https://github.com/fosterdill/active_record-lite"><img src="activerecord.png"></a>
+          </div>
+          <div class="project-title">
+            ActiveRecord Lite <a href="https://github.com/fosterdill/active_record-lite">(source)</a>
+          </div>
+          <div class="project-desc">
+            Rebuilt basic ActiveRecord functionality to better understand Rails and ORM.  Heavy use of metaprogramming, including <pre class="code">#send</pre> and <pre class="code">::define_method</pre> for associations. Uses Ruby objects as a data structure to store intermediate attributes in join table associations.
+          </div>
+        </div>
+
       </div>
     </div>
       </div>

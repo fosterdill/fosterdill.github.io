@@ -9,6 +9,6 @@ Portfolio.Routers.Router = Backbone.Router.extend({
   },
 
   projects: function () {
-    $('.scrollable').animate({ 'top': -395 }, 200);
+    $('.scrollable').animate({ 'top': -290 }, 200);
   }
 });

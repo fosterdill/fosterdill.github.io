@@ -3,9 +3,8 @@ body {
   font-family: 'Gafata', sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  margin-top: 51px;
-  background-image: url('crossword.png');
-  background-repeat: repeat;
+  margin-top: 47px;
+  background: #edf1f2;
 }
 
 .viewport {
@@ -23,7 +22,6 @@ body {
 .scrollable {
   position: absolute;
   top: 10px;
-  background: rgba(255, 255, 255, .5);
 }
 
 .blur {
@@ -54,6 +52,11 @@ body {
   font-size: 14pt;
   font-family: 'Josefin Sans';
   letter-spacing: -1px;
+}
+
+.project-img > a > img {
+  width: 300px;
+  height: 200px;
 }
 
 .divider-shadow {
@@ -102,8 +105,16 @@ body {
   margin-top: 0px;
 }
 
+.resource {
+  font-size: 16pt;
+}
+
+.code {
+  display: inline;
+}
+
 a {
-  color: black;
+  color: #4e3c87;
   text-decoration: none;
   position:relative;
 }
