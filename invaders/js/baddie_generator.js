@@ -3,11 +3,15 @@
 
   var BaddieGenerator = SpaceGame.BaddieGenerator = function (canvas) {
     this.baddieCount = 0;
+    this.totalCount = 0;
+    this.killedBaddies = 0;
     this.canvas = canvas;
   };
   
   _.extend(BaddieGenerator.prototype, {
-    MAX_BADDIES: 8,
+    MAX_BADDIES: 4,
+
+    ALL_BADDIES: 40,
 
     remove: function (num) {
       this.baddieCount -= num;
@@ -32,25 +36,24 @@
       var halfHeight = this.canvas.height / 2;
         switch (side) {
           case 'top':
-            position = [randNum * (this.canvas.width) - halfWidth, 
+            position = [randNum * (this.canvas.width - 60) - halfWidth, 
                         -(this.canvas.height / 2)];
-            velocity = [0, Math.random() * 2 + 1];
+            velocity = [0, Math.random() * 2 + .5];
             orientation = (orient % 4);
             originalOrientation = 0;
 
             break;
           case 'right':
             position = [this.canvas.width / 2,
-                        (this.canvas.height) * randNum - halfHeight];
-            velocity = [-2 * Math.random() - 2, 0];
-            velocity = [-Math.random() * 2 - 1, 0]
+                        (this.canvas.height - 60) * randNum - halfHeight];
+            velocity = [-Math.random() * 2 - .5, 0]
             orientation = (orient % 4) + 1;
             originalOrientation = 1;
             break;
           case 'left':
             position = [-(this.canvas.width / 2),
-                        (this.canvas.height) * randNum - halfHeight];
-            velocity = [Math.random() * 2 + 1, 0];
+                        (this.canvas.height - 60) * randNum - halfHeight];
+            velocity = [Math.random() * 2 + .5, 0];
             orientation = (orient % 4) - 1;
             originalOrientation = -1;
             break;
@@ -63,6 +66,7 @@
           originalOrientation
         );
         this.baddieCount += 1;
+        this.totalCount += 1;
       return baddie;
     }
   });

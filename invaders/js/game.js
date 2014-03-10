@@ -52,6 +52,17 @@
     },
 
     loop: function () {
+      if (this.baddie_generator.totalCount >= this.baddie_generator.ALL_BADDIES) {
+        var that = this;
+        this.drawEndScreen();
+        document.onkeydown = function (event) {
+          if (event.keyCode === 82) {
+            var game = new SpaceGame.Game();
+            game.start();
+          }
+        };
+        return;
+      }
       if (this.baddie_generator.baddieCount < this.baddie_generator.MAX_BADDIES) {
         var index = parseInt(Math.random() * 3);
         var side = ['right', 'top', 'left'][index];
@@ -63,13 +74,24 @@
 
     throttledFire: _.throttle(function () {
       this.bullets.push(this.playerShip.fire());
-    }, 200, { trailing: false }),
+    }, 150, { trailing: false }),
 
     throttledSpin: _.throttle(function (dir) {
       this['spinning' + dir] = true;
-    }, 200, { trailing: false }),
+    }, 50, { trailing: false }),
 
-    SHIP_SPEED: 5,
+    drawEndScreen: function () {
+        var accuracy = (this.baddie_generator.killedBaddies * 100) / (this.bullets.length + this.baddie_generator.killedBaddies);
+        var missed = this.baddie_generator.ALL_BADDIES - this.baddie_generator.killedBaddies - 3;
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+        this.ctx.font="30px Georgia";
+        this.ctx.fillText(missed - 1 + ' missed kills',160,50);
+        this.ctx.fillText(parseInt(accuracy) + '% accuracy',160,100);
+        this.ctx.fillText(parseInt(accuracy * 1000 / missed) + ' points',160,150);
+        this.ctx.fillText("Press r to try again", 130, 200);
+    },
+
+    SHIP_SPEED: 8,
 
     reactToInput: function () {
       var that = this;
@@ -106,6 +128,7 @@
       this.bullets.splice(this.bullets.indexOf(bullet), 1);
       this.enemies.splice(this.enemies.indexOf(enemy), 1);
       this.baddie_generator.remove(1);
+      this.baddie_generator.killedBaddies += 1;
       this.score += this.ENEMY_POINT_VALUE;
     },
 
@@ -117,7 +140,6 @@
           if ((enemy.orientation % 4) != 0) {
             return;
           } else if (bullet.collidesWith(enemy)) {
-            console.log('boom');
             that.explodeEnemy(bullet, enemy);
           }
         });
