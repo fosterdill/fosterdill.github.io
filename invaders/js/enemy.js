@@ -4,6 +4,7 @@
   var Enemy = SpaceGame.Enemy = function (pos, vel, img, orientation) {
     SpaceGame.MovingObject.call(this, pos, vel, img);
     this.orientation = orientation;
+    this.originalOrientation = orientation;
     this.type = 'enemy';
   };
 

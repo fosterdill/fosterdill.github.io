@@ -11,6 +11,7 @@
     this.theta = 0;
     this.orientation = 0;
     this.stars = [];
+    this.score = 0;
 
     this.objects.push(this.playerShip);
   };
@@ -105,23 +106,19 @@
     explodeEnemy: function (bullet, enemy) {
       this.bullets.splice(this.bullets.indexOf(bullet), 1);
       this.enemies.splice(this.enemies.indexOf(enemy), 1);
+      this.baddie_generator.remove(1);
       this.score += this.ENEMY_POINT_VALUE;
+      console.log(this.score);
     },
 
     checkCollisions: function () {
       var that = this;
-      var orientations = [
-        this.orientation, 
-        this.orientation + 4, 
-        this.orientation - 4
-      ];
+
       _.each(this.bullets, function (bullet) {
         _.each(that.enemies, function (enemy) {
-          if (orientations.indexOf(enemy.orientation) === -1)
+          if (enemy.orientation != 0) {
             return;
-
-          if (bullet.collidesWith(enemy)) {
-            console.log('boom');
+          } else if (bullet.collidesWith(enemy)) {
             that.explodeEnemy(bullet, enemy);
           }
         });
@@ -139,15 +136,20 @@
             that['spinning' + dir] = false;
             that.theta = 0;
 
-            //store orientation to know which way enemies are pointing
-            that.orientation += (dir === 'Right' ? 1 : -1);
-            that.orientation = that.orientation % 4;
+            that.eachBaddie(function (baddie) {
+              baddie.orientation += (dir === 'Right' ? 1 : -1);
+              baddie.orientation = baddie.orientation % 4;
+            });
           } else {
             that.ctx.rotate(dir == 'Right' ? that.ROTATION_SPEED : -that.ROTATION_SPEED);
             that.theta += (dir == 'Right' ? that.ROTATION_SPEED : -that.ROTATION_SPEED);
           }
         }
       });
+    },
+
+    eachBaddie: function (callback) {
+      _.each(this.enemies, callback.bind(this));
     },
 
     clearAndPaintBackground: function () {
