@@ -13,7 +13,7 @@ body {
   position: fixed;
   width: 960px;
   height: 100%;
-  overflow: hidden;
+  overflow: scroll;
 }
 .container {
   margin: 0px auto;
