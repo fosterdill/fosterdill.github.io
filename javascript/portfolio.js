@@ -14,23 +14,23 @@ $(document).ready(function () {
   Portfolio.initialize();
 
   //handlers for about and projects clicks
-  $('.about-link').on('click', function (event ) {
-    event.preventDefault();
-    if (Backbone.history.fragment == 'about') {
-      Backbone.history.loadUrl('about');
-    } else {
-      Backbone.history.navigate('about', { trigger: true });
-    }
-  });
+  // $('.about-link').on('click', function (event ) {
+  //   event.preventDefault();
+  //   if (Backbone.history.fragment == 'about') {
+  //     Backbone.history.loadUrl('about');
+  //   } else {
+  //     Backbone.history.navigate('about', { trigger: true });
+  //   }
+  // });
 
-  $('.projects-link').on('click', function (event ) {
-    event.preventDefault();
-    if (Backbone.history.fragment == 'projects') {
-      Backbone.history.loadUrl('projects');
-    } else {
-      Backbone.history.navigate('projects', { trigger: true });
-    }
-  });
+  // $('.projects-link').on('click', function (event ) {
+  //   event.preventDefault();
+  //   if (Backbone.history.fragment == 'projects') {
+  //     Backbone.history.loadUrl('projects');
+  //   } else {
+  //     Backbone.history.navigate('projects', { trigger: true });
+  //   }
+  // });
 
 //   var handle = function(delta) {
 //     var el = $(".scrollable");
