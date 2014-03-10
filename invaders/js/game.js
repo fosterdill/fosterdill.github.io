@@ -12,6 +12,7 @@
     this.orientation = 0;
     this.stars = [];
     this.score = 0;
+    this.orientation = 0;
 
     this.objects.push(this.playerShip);
   };
@@ -50,14 +51,12 @@
       }
     },
 
-    test: _.throttle(function () {
-      this.enemies = this.enemies.concat(this.baddie_generator.wave('top'));
-      this.enemies = this.enemies.concat(this.baddie_generator.wave('right'));
-      this.enemies = this.enemies.concat(this.baddie_generator.wave('left'));
-    }, 1000, { trailing: false }),
-
     loop: function () {
-      this.test();
+      if (this.baddie_generator.baddieCount < this.baddie_generator.MAX_BADDIES) {
+        var index = parseInt(Math.random() * 3);
+        var side = ['right', 'top', 'left'][index];
+        this.enemies = this.enemies.concat(this.baddie_generator.wave(side, this.orientation));
+      }
       window.requestAnimFrame(this.loop.bind(this));
       this.render();
     },
@@ -108,7 +107,6 @@
       this.enemies.splice(this.enemies.indexOf(enemy), 1);
       this.baddie_generator.remove(1);
       this.score += this.ENEMY_POINT_VALUE;
-      console.log(this.score);
     },
 
     checkCollisions: function () {
@@ -116,9 +114,10 @@
 
       _.each(this.bullets, function (bullet) {
         _.each(that.enemies, function (enemy) {
-          if (enemy.orientation != 0) {
+          if ((enemy.orientation % 4) != 0) {
             return;
           } else if (bullet.collidesWith(enemy)) {
+            console.log('boom');
             that.explodeEnemy(bullet, enemy);
           }
         });
@@ -136,9 +135,10 @@
             that['spinning' + dir] = false;
             that.theta = 0;
 
-            that.eachBaddie(function (baddie) {
+
+            that.orientation += (dir === 'Right' ? 1 : -1);
+            _.each(that.enemies, function (baddie) {
               baddie.orientation += (dir === 'Right' ? 1 : -1);
-              baddie.orientation = baddie.orientation % 4;
             });
           } else {
             that.ctx.rotate(dir == 'Right' ? that.ROTATION_SPEED : -that.ROTATION_SPEED);
