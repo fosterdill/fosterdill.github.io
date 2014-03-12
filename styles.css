@@ -30,10 +30,8 @@ body {
   -webkit-filter: blur(5px);
 }
 
-.header-buttons {
-  overflow: hidden;
-  margin-top: 10px;
-  float: right;
+.header-buttons{
+  display: inline;
 }
 
 .header-button {
@@ -65,14 +63,24 @@ body {
   margin-top: 5px;
 }
 
+.about-container {
+  margin-top: 110px;
+}
+
+.project-container {
+  margin-top: 110px;
+}
+
 .navbar {
-  padding-top: 10px;
+  text-align: center;
+  padding-top: 4px;
   position: fixed;
   background-color: #edf1f2;
   z-index: 100;
   top: 0px;
   width: 960px;
   border-bottom: 1px solid grey;
+  padding-bottom: 7px;
 }
 
 .project-show {
