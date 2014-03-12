@@ -5,7 +5,7 @@ body {
   -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
   -moz-font-smoothing: antialiased;
   -moz-text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  margin-top: 56px;
+  margin-top: 86px;
   background: #edf1f2;
 }
 
@@ -22,7 +22,7 @@ body {
 
 
 .scrollable {
-  position: absolute;
+  position: relative;
   top: 10px;
 }
 
@@ -69,6 +69,8 @@ body {
 .navbar {
   padding-top: 10px;
   position: fixed;
+  background-color: #edf1f2;
+  z-index: 100;
   top: 0px;
   width: 960px;
   border-bottom: 1px solid grey;
