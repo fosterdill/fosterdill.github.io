@@ -32,7 +32,7 @@ body {
 
 .header-buttons {
   overflow: hidden;
-  margin-top: 18px;
+  margin-top: 10px;
   float: right;
 }
 
@@ -47,7 +47,6 @@ body {
   font-size: 25pt;
   font-weight: 900;
   letter-spacing: 2px;
-  color: #4d1d1b;
 }
 
 .name > #email {
@@ -129,6 +128,3 @@ a:hover{
   color: #6c0000;
 }
 
-.bigger-font {
-  font-size: 30pt;
-}
