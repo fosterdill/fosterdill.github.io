@@ -1,0 +1,3 @@
+[submodule "vinylize"]
+	path = vinylize
+	url = git@github.com:fosterdill/vinylize
