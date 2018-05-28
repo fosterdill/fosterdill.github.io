@@ -1,0 +1,8 @@
+{
+  "name": "Basic",
+  "defaults": {
+    "none": "page.schema.json",
+    "new": "components.schema.json"
+  },
+  "template": "template.md"
+}
